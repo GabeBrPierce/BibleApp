@@ -1,0 +1,12 @@
+.js-menu div {
+  padding: 10px 20px;
+}
+
+.js-menu > div {
+  padding: 6px;
+}
+
+.js-menu > div.selected {
+  background: #003cff;
+  color: white;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="rgb(106, 0, 128)" />
+    <title>Bible App for KaiOs</title>
+    <link rel="stylesheet" type="text/css" href="/src/css/header.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/root.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/input.css" />
+
+    <link rel="stylesheet" type="text/css" href="/src/css/page/index.css" />
+    <link rel="stylesheet" type="text/css" href="/src/css/_donotbuild.css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <header>
+        <span>Bible App</span>
+      </header>
+
+      <div class="container js-menu">
+        <div data-js-menu-id="continueReading">Continue Reading</div>
+        <div data-js-menu-id="continueFromBookmark">Continue from Bookmark</div>
+        <div data-js-menu-id="searchAddress">Search Address</div>
+        <div data-js-menu-id="searchKeyword">Search Keyword</div>
+        <div data-js-menu-id="manageBookmarks">Manage Bookmarks</div>
+        <div data-js-menu-id="manageHighlights">Manage Highlights</div>
+        <div data-js-menu-id="manageNotes">Manage Notes</div>
+      </div>
+      <!-- REQUIRED -->
+      <div id="softkey">
+        <label id="left"></label>
+        <label id="center">Insert</label>
+        <label id="right"></label>
+      </div>
+    </div>
+    <script src="/src/js/base.js"></script>
+    <!-- REQUIRED -->
+    <script src="/src/js/page/index.js"></script>
+    <script>
+      console.log("Softkeys exists?", window.Softkeys);
+      console.log("Menu exists?", window.Menu);
+      console.log("KeyRouter exists?", window.KeyRouter);
+    </script>
+  </body>
+</html>
