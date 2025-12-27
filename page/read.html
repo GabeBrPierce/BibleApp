@@ -19,18 +19,13 @@
   <body>
     <div id="root">
       <header>
-        <span>Bible App</span>
+        <span id="verseReference">Genesis 1:1</span>
       </header>
 
-      <div class="container js-menu">
-        <div data-js-menu-id="continueReading">Continue Reading</div>
-        <div data-js-menu-id="continueFromBookmark">Continue from Bookmark</div>
-        <div data-js-menu-id="searchAddress">Search Address</div>
-        <div data-js-menu-id="searchKeyword">Search Keyword</div>
-        <div data-js-menu-id="manageBookmarks">Manage Bookmarks</div>
-        <div data-js-menu-id="manageHighlights">Manage Highlights</div>
-        <div data-js-menu-id="manageNotes">Manage Notes</div>
-        <div data-js-menu-id="manageNotes">Settings</div>
+      <div class="container">
+        <div id="verseText">
+          In the beginning God created the heaven and the earth.
+        </div>
       </div>
       <!-- REQUIRED -->
       <div id="softkey">
@@ -39,9 +34,9 @@
         <label id="right"></label>
       </div>
     </div>
-    <script src="../src/js/base.js"></script>
     <!-- REQUIRED -->
-    <script src="../src/js/page/index.js"></script>
+    <script src="../src/js/base.js"></script>
+    <script src="../src/js/page/read.js"></script>
     <script>
       console.log("Softkeys exists?", window.Softkeys);
       console.log("Menu exists?", window.Menu);

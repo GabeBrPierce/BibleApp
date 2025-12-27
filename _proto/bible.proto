@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package bible;
+option java_package = "org.example.bible";
+option java_outer_classname = "BibleProtos";
+
+// Basic reference to a verse (used in indexes and navigation)
+message VerseRef {
+  // book_id maps to metadata.book_ids (0-based or 1-based as you choose)
+  int32 book_id = 1;
+  int32 chapter = 2;    // chapter number (1-based)
+  int32 verse = 3;      // verse number (1-based)
+}
+
+// Single verse container
+message Verse {
+  int32 number = 1;     // verse number
+  string text = 2;      // verse text, UTF-8
+  repeated string tags = 3; // optional small tags (e.g., "psalm", "poetry")
+}
+
+// Chapter file: primary unit stored on disk (one .pb per chapter)
+message Chapter {
+  int32 book_id = 1;         // points into metadata.book_ids
+  int32 chapter_number = 2;  // 1-based
+  repeated Verse verses = 3; // verses in this chapter, ordered
+  // optional useful meta for quick UI (small)
+  string title = 4;          // e.g. "John 3"
+  int32 verse_count = 5;     // duplicated for quick checks (can be derived)
+}
+
+// Book metadata (keeps mapping of id -> name/abbr)
+message BookInfo {
+  int32 id = 1;
+  string name = 2;      // full name, e.g., "Genesis"
+  string short_name = 3; // e.g., "Gen"
+  int32 chapters = 4;   // number of chapters in this book
+  string testament = 5; // optional: "OT" or "NT" or empty
+}
+
+// Top-level metadata file (small, load once)
+message Metadata {
+  string version = 1;         // e.g., "KJV", "ASV", "WEB-2020"
+  string language = 2;        // e.g., "en"
+  repeated BookInfo books = 3;
+  int32 total_chapters = 4;
+  int32 total_verses = 5;
+}
+
+// Compact inverted index entry for a token -> list of VerseRef
+// Note: huge indices should be chunked; this is a format for index
+message Posting {
+  string token = 1;               // normalized search token, e.g. "love"
+  repeated VerseRef refs = 2;     // list of references containing token
+}
+
+// A chunked index file: many Postings in one file. Split tokens alphabetically
+message IndexChunk {
+  string chunk_id = 1;            // e.g. "a-c", "d-f" or "001" for numeric
+  repeated Posting postings = 2;
+}

@@ -12,11 +12,25 @@
     "app:start": "kdeploy build start",
     "app:stop": "kdeploy build stop"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1",
-    "kdeploy": "kaiostech/kdeploy"
+    "parcel-bundler": "^1.6.1"
   },
-  "keywords": []
+  "keywords": [],
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabeBrPierce/BibleApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabeBrPierce/BibleApp/issues"
+  },
+  "homepage": "https://github.com/GabeBrPierce/BibleApp#readme",
+  "dependencies": {
+    "protobufjs": "^8.0.0"
+  }
 }

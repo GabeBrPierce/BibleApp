@@ -89,3 +89,7 @@ window.Menu = {
     this.onSelect?.(id, el);
   },
 };
+
+function goTo(path) {
+  window.location.href = path;
+}
